@@ -36,20 +36,44 @@
 
                     <!-- Nav items -->
                     <ul class="navbar-nav">
+                    <li class="nav-item">
+                            <a class="nav-link" href="{{ url('admin') }}">
 
+                            <span class="nav-link-text">Dasboard</span>
+                            </a>
+                    </li>
+                    @if (Auth::user()->role == 'Admin')
+                    @else
+                    <li class="nav-item">
+                            <a class="nav-link" href="{{ url('admin/kehadiran') }}">
+
+                            <span class="nav-link-text">Absen</span>
+                            </a>
+                        </li>
+                        @endif
+                        @if (Auth::user()->role == 'petugas')
+                        @else
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url('admin/pegawai') }}">
 
                                 <span class="nav-link-text">Data Pegawai</span>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url('admin/kehadiran') }}">
+                        @endif
 
-                                <span class="nav-link-text">Data Kehadiran</span>
+                        @if (Auth::user()->role == 'petugas')
+                        @else
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                Data Kehadiran
                             </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <li><a class="dropdown-item" href="{{ url('admin/hadir') }}">Hadir</a></li>
+                                <li><a class="dropdown-item" href="{{ url('admin/kehadiran') }}">Sakit</a></li>
+                            </ul>
                         </li>
-                                        
+                        @endif
                     </ul>
                 </div>
             </div>

@@ -1,11 +1,12 @@
 <?php
-
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PegawaiController;
 use App\Http\Controllers\KehadiranController;
+use App\Http\Controllers\HadirController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\UserController;
-
+use App\Http\Controllers\Auth\RegisterController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -34,6 +35,7 @@ Route::get('/',function() {
 });
 Route::resource('pegawai',PegawaiController::class);
 Route::resource('kehadiran',KehadiranController::class);
+Route::resource('hadir',HadirController::class);
 Route::resource('users', UserController::class)->middleware('admin');
 
 });

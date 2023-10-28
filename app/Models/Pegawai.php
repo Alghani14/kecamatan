@@ -14,5 +14,10 @@ class Pegawai extends Model
         
         return $this->hasMany('App\Models\Kehadiran','id_pegawai');
     }
+    public function Hadir()
+    {
+        
+        return $this->hasMany('App\Models\Hadir','id_pegawai');
+    }
     use HasFactory;
 }

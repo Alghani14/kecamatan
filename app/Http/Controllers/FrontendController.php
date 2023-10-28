@@ -10,8 +10,7 @@ class FrontendController extends Controller
 {
     public function tampil()
     {
-        $pegawais = Pegawai::all();
-        return view('admin.pegawai.index', compact('pegawais'));
+        return view('admin.index');
     }
 }
 

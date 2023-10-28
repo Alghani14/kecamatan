@@ -1,13 +1,13 @@
 @extends('layouts.master')
 
 @section('konten')
-    <div class="container">
+<div class="container">
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
                         <h10 class="m-0 font-weight-bold text-primary">
-                            Data Pegawai Sakit/Izin Dan Dinas Luar
+                            Data Pegawai Hadir
                            
                             <form class="navbar-search mt-3 cari-none" action="{{ URL::current() }}" method="GET">
                                 <div class="form-group mb-0">
@@ -30,26 +30,18 @@
                                     <tr>
                                         <th>No</th>
                                         <th>Id Pegawai</th>
-                                        <th>Tanggal Awal</th>
-                                        <th>Tanggal Akhir</th>
-                                        <th>Jumlah Hari</th>
-                                        <th>Bukti</th>
-                                        <th>Ket.Lainnnya</th>
+                                        <th>Aktivitas</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @php
                                         $no = 1;
                                     @endphp
-                                    @foreach ($kehadiran as $item)
+                                    @foreach ($hadir as $item)
                                         <tr>
                                             <td>{{ $no++ }}</td>
-                                            <td>{{ $item->id}}</td>
-                                            <td>{{ $item->tgl_awal }}</td>
-                                            <td>{{ $item->tgl_akhir }}</td>
-                                            <td>{{ $item->jumlah_hari }}</td>
-                                            <td><img src="{{ $item->img() }}" alt="" style="width:150px; height:150px;" alt="Cover"></td>
-                                            <td>{{ $item->dll }}</td>
+                                            <td>{{ $item->id_pegawai }}</td>
+                                            <td>{{ $item->aktivitas }}</td>
                                             <td>
                                                 <center>
                                                     <form action="{{ route('kehadiran.destroy', $item->id) }}" method="post">
@@ -73,5 +65,4 @@
             </div>
         </div>
     </div>
-
-@endsection
+    @endsection
